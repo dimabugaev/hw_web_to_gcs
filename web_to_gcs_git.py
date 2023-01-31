@@ -38,7 +38,7 @@ def write_to_gcs(path: Path) -> None:
 
 
 @flow()
-def etl_web_to_gcs() -> None:
+def web_to_gcs() -> None:
     """The main ETL function"""
     color = 'green'
     year = 2020
@@ -56,4 +56,4 @@ def etl_web_to_gcs() -> None:
     write_to_gcs(path)
 
 if __name__ == '__main__':
-    etl_web_to_gcs()
+    web_to_gcs()
