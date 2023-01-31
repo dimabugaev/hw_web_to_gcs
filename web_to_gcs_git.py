@@ -38,7 +38,7 @@ def write_to_gcs(path: Path) -> None:
 
 
 @flow()
-def etl_web_to_gcs(month: int = 1, year: int = 2020, color: str = 'green', date_column_ptefix: str = 'lpep') -> None:
+def web_to_gcs(month: int = 1, year: int = 2020, color: str = 'green', date_column_ptefix: str = 'lpep') -> None:
     """The main ETL function"""
 
     dataset_file = f'{color}_tripdata_{year}-{month:02}'
@@ -52,4 +52,4 @@ def etl_web_to_gcs(month: int = 1, year: int = 2020, color: str = 'green', date_
     write_to_gcs(path)
 
 if __name__ == '__main__':
-    etl_web_to_gcs()
+    web_to_gcs()
