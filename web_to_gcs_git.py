@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 from prefect import flow, task
 #from prefect_gcp.cloud_storage import GcsBucket
-from prefect.filesystems import GcsBucket
+from prefect.filesystems import Gcs
 
 
 @task(retries=3)
@@ -35,7 +35,8 @@ def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
 @task()
 def write_to_gcs(path: Path) -> None:
     """Upload data file to GCS"""
-    gcp_cloud_storage_bucket_block = GcsBucket.load("gcsbucket")
+    #gcp_cloud_storage_bucket_block = GcsBucket.load("gcsbucket")
+    gcp_cloud_storage_bucket_block = Gcs.load("gcsbucket")
     gcp_cloud_storage_bucket_block.upload_from_path(from_path=f"{path}", to_path=path.name)
 
 
