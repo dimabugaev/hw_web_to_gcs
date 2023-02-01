@@ -41,8 +41,8 @@ def write_to_gcs(path: Path) -> None:
 def web_to_gcs() -> None:
     """The main ETL function"""
     color = 'green'
-    year = 2020
-    month = 11
+    year = 2019
+    month = 4
     date_column_ptefix = 'lpep'
 
     dataset_file = f'{color}_tripdata_{year}-{month:02}'
